@@ -58,7 +58,13 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         
     return output, attention_weights
 
-    class EncoderLayer(tf.keras.layers.Layer):
+def point_wise_feed_forward_network(d_model, dff):
+  return tf.keras.Sequential([
+      tf.keras.layers.Dense(dff, activation='relu'),  # (batch_size, seq_len, dff)
+      tf.keras.layers.Dense(d_model)  # (batch_size, seq_len, d_model)
+  ])
+  
+class EncoderLayer(tf.keras.layers.Layer):
   def __init__(self, d_model, num_heads, dff, rate=0.1):
     super(EncoderLayer, self).__init__()
 

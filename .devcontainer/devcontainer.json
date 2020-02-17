@@ -14,7 +14,9 @@
 	"postCreateCommand": [
 		"pip install pylint",
 		"pip install tensorflow-gpu",
-		"pip install pandas"
+		"pip install pandas",
+		"pip install tensorflow_datasets"
+		
 	]
 	// "remoteUser": "Amirreza"
 }
